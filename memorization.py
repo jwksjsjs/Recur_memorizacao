@@ -11,7 +11,7 @@ def particoes(n, k):
         return 0
     return particoes(n - k, k) + particoes(n, k - 1)
 
-# Interface limpa para partições de n
+
 def numero_particoes(n):
     return particoes(n, n)
 
@@ -22,13 +22,15 @@ def calcular_particao(n):
     duracao = perf_counter() - inicio
     return (n, total, round(duracao, 3))
 
+
 # Roda cálculos em paralelo para uma lista de valores de n
 def executar_particoes_em_paralelo(lista_n):
     with ProcessPoolExecutor() as executor:
         resultados = executor.map(calcular_particao, lista_n)
     return list(resultados)
+    
 
-# === Execução Principal ===
+# Execuçã
 if __name__ == "__main__":
     lista = [50, 60, 70, 80, 90]
 
